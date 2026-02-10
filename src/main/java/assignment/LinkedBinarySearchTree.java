@@ -103,7 +103,12 @@ public class LinkedBinarySearchTree<E extends Comparable<? super E>> implements 
      * @param curr The current element
      */
     private void preorderRecursive(Node<E> curr) {
-        // Your code task 1
+        if (curr == null) {
+            return;
+        }
+        orderedList.add(curr.elem);
+        preorderRecursive(curr.left);
+        preorderRecursive(curr.right);
     }
 
 
@@ -122,7 +127,12 @@ public class LinkedBinarySearchTree<E extends Comparable<? super E>> implements 
      * @param curr The current element
      */
     private void inorderRecursive(Node<E> curr) {
-        // Your code task 2
+        if (curr == null) {
+            return;
+        }
+        inorderRecursive(curr.left);
+        orderedList.add(curr.elem);
+        inorderRecursive(curr.right);
     }
 
     /**
@@ -139,7 +149,12 @@ public class LinkedBinarySearchTree<E extends Comparable<? super E>> implements 
      * @param curr The current element
      */
     private void postorderRecursive(Node<E> curr) {
-        // Your code task 3
+        if (curr == null) {
+            return;
+        }
+        postorderRecursive(curr.left);
+        postorderRecursive(curr.right);
+        orderedList.add(curr.elem);
     }
 
 
